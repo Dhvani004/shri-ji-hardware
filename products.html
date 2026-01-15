@@ -1,128 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products | Shri Ji Hardware</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header>
-    <div class="container nav">
-        <div class="logo">
-            <img src="logo.png" alt="Shri Ji Hardware Logo">
-            <span>Shri Ji Hardware</span>
-        </div>  
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="products.html">Products</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </div>
-</header>
-
-<section class="products">
-    <h2>Our Products</h2>
-
-    <!-- FILTER BUTTONS -->
-    <div class="filter-buttons">
-        <button onclick="filterProducts('all',this)">All</button>
-        <button onclick="filterProducts('tools',this)">Tools</button>
-        <button onclick="filterProducts('electrical',this)">Electrical</button>
-        <button onclick="filterProducts('plumbing',this)">Plumbing</button>
-        <button onclick="filterProducts('paints',this)">Paints</button>
-        <button onclick="filterProducts('fastener',this)">Fasteners</button>
-        <button onclick="filterProducts('machinery',this)">Machinery</button>
-    </div>
-
-    <!-- PRODUCT GRID -->
-    <div class="container product-grid">
-
-        <!-- TOOLS -->
-        <div class="product-card tools">
-            <div class="product-img">
-                <img src="images/hammer.jpg" alt="Hammer">
+    <header>
+        <div id="menu-overlay" onclick="closeMenu()"></div>
+        <div class="container nav">
+            <div class="logo">
+                <img src="logo.png" alt="Shri Ji Hardware Logo">
+                <span>Shri Ji Hardware</span>
             </div>
-            <h3>Hammer</h3>
-            <p>Heavy duty steel hammer</p>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <nav id="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
         </div>
+    </header>
+    <main>
+        <section class="products">
+            <h2>Our Products</h2>
 
-        <!-- ELECTRICAL -->
-        <div class="product-card electrical">
-            <div class="product-img">
-                <img src="images/wire.jpg" alt="Electrical Wire">
+            <!-- FILTER BUTTONS -->
+            <div class="filter-buttons">
+                <button onclick="filterProducts('all',this)">All</button>
+                <button onclick="filterProducts('tools',this)">Tools</button>
+                <button onclick="filterProducts('electrical',this)">Electrical</button>
+                <button onclick="filterProducts('plumbing',this)">Plumbing</button>
+                <button onclick="filterProducts('paints',this)">Paints</button>
+                <button onclick="filterProducts('fastener',this)">Fasteners</button>
+                <button onclick="filterProducts('machinery',this)">Machinery</button>
             </div>
-            <h3>Electrical Wire</h3>
-            <p>High quality copper wire</p>
+
+            <!-- PRODUCT GRID -->
+            <div class="container product-grid">
+
+                <!-- TOOLS -->
+                <div class="product-card tools">
+                    <div class="product-img">
+                        <img src="images/hammer.jpg" alt="Hammer">
+                    </div>
+                    <h3>Hammer</h3>
+                    <p>Heavy duty steel hammer</p>
+                </div>
+
+                <!-- ELECTRICAL -->
+                <div class="product-card electrical">
+                    <div class="product-img">
+                        <img src="images/wire.jpg" alt="Electrical Wire">
+                    </div>
+                    <h3>Electrical Wire</h3>
+                    <p>High quality copper wire</p>
+                </div>
+                <div class="product-card electrical">
+                    <div class="product-img">
+                        <img src="images/bulb.jpg" alt="bulb">
+                    </div>
+                    <h3>Bulb</h3>
+                    <p>High quality bulb</p>
+                </div>
+
+                <!-- PLUMBING -->
+                <div class="product-card plumbing">
+                    <div class="product-img">
+                        <img src="images/pipe.jpg" alt="PVC Pipe">
+                    </div>
+                    <h3>PVC Pipe</h3>
+                    <p>Durable plumbing pipe</p>
+                </div>
+
+                <!-- PAINTS -->
+                <div class="product-card paints">
+                    <div class="product-img">
+                        <img src="images/paints.jpg" alt="Wall Paint">
+                    </div>
+                    <h3>Wall Paint</h3>
+                    <p>Long lasting interior paint</p>
+                </div>
+
+
+
+                <!-- FASTENERS -->
+                <div class="product-card fastener">
+                    <div class="product-img">
+                        <img src="images/nail.jpg" alt="Nails">
+                    </div>
+                    <h3>Nails</h3>
+                    <p>Steel and iron nails</p>
+                </div>
+
+                <!-- MACHINERY -->
+                <div class="product-card machinery">
+                    <div class="product-img">
+                        <img src="images/powerdrill.jpg" alt="Power Drill">
+                    </div>
+                    <h3>Power Drill</h3>
+                    <p>Electric and cordless drills</p>
+                </div>
+
+                <div class="product-card paints">
+                    <div class="product-img">
+                        <img src="images/brush.jpg" alt="Brush">
+                    </div>
+                    <h3>Paint Brush</h3>
+                    <p>Synthetic Wall Paint Brush</p>
+                </div>
+
             </div>
-            <div class="product-card electrical">
-             <div class="product-img">
-                <img src="images/bulb.jpg" alt="bulb">
-            </div>
-            <h3>Bulb</h3>
-            <p>High quality bulb</p>
-        </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 Shri Ji Hardware</p>
+    </footer>
 
-        <!-- PLUMBING -->
-        <div class="product-card plumbing">
-            <div class="product-img">
-                <img src="images/pipe.jpg" alt="PVC Pipe">
-            </div>
-            <h3>PVC Pipe</h3>
-            <p>Durable plumbing pipe</p>
-        </div>
-
-        <!-- PAINTS -->
-        <div class="product-card paints">
-            <div class="product-img">
-                <img src="images/paints.jpg" alt="Wall Paint">
-            </div>
-            <h3>Wall Paint</h3>
-            <p>Long lasting interior paint</p>
-        </div>
-
-       
-
-        <!-- FASTENERS -->
-        <div class="product-card fastener">
-            <div class="product-img">
-                <img src="images/nail.jpg" alt="Nails">
-            </div>
-            <h3>Nails</h3>
-            <p>Steel and iron nails</p>
-        </div>
-
-        <!-- MACHINERY -->
-        <div class="product-card machinery">
-            <div class="product-img">
-                <img src="images/powerdrill.jpg" alt="Power Drill">
-            </div>
-            <h3>Power Drill</h3>
-            <p>Electric and cordless drills</p>
-        </div>
-
-         <div class="product-card paints">
-            <div class="product-img">
-                <img src="images/brush.jpg" alt="Brush">
-            </div>
-            <h3>Paint Brush</h3>
-            <p>Synthetic Wall Paint Brush</p>
-        </div>
-
-    </div>
-</section>
-
-<footer>
-    <p>© 2025 Shri Ji Hardware</p>
-</footer>
-
-<script src="script.js"></script>
-<script>
-    
-let buttons = document.querySelector(".filter-buttons button");
-buttons.classList.add("active");
-</script>
+    <script src="script.js"></script>
+    <script>
+        let buttons = document.querySelector(".filter-buttons button");
+        buttons.classList.add("active");
+    </script>
 </body>
+
 </html>

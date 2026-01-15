@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +8,22 @@
     <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
     <header>
+        <div id="menu-overlay" onclick="closeMenu()"></div>
         <div class="container nav">
-        <div class="logo">
-            <img src="logo.png" alt="Shri Ji Hardware Logo">
-            <span>Shri Ji Hardware</span>
-        </div>  
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="products.html">Products</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+            <div class="logo">
+                <img src="logo.png" alt="Shri Ji Hardware Logo">
+                <span>Shri Ji Hardware</span>
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <nav id="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
         </div>
     </header>
 
@@ -33,32 +37,34 @@
     <section class="about">
         <div class="about-box show">
             <h2>Who we are</h2>
-            <p>            
-            Shri Ji Hardware Store has been serving quality hardware materials
-            for homes, contractors, and businesses since 2019.
-            We believe in providing genuine products, fair pricing, and
-            reliable customer service.</p>
+            <p>
+                Shri Ji Hardware Store has been serving quality hardware materials
+                for homes, contractors, and businesses since 2019.
+                We believe in providing genuine products, fair pricing, and
+                reliable customer service.</p>
             <br>
             <h2>What we offer</h2>
             <p>
-            We provide a wide range of hardware products including tools,
-            electrical materials, plumbing items, paints, fasteners,
-            and machinery. Our goal is to help customers choose the
-            right products for durable and safe construction.
+                We provide a wide range of hardware products including tools,
+                electrical materials, plumbing items, paints, fasteners,
+                and machinery. Our goal is to help customers choose the
+                right products for durable and safe construction.
             </p><br>
             <h2>Why customer trust us</h2>
             <p>
-            With over 7 years of experience, Shri Ji Hardware is known
-            for honest advice, quality materials, and long-term
-            customer relationships.
+                With over 7 years of experience, Shri Ji Hardware is known
+                for honest advice, quality materials, and long-term
+                customer relationships.
             </p>
-<br>
+            <br>
             <a href="index.html#contact" class="btn">Visit Our Shop</a>
         </div>
     </section>
+    <script src="script.js"></script>
 
     <footer>
         <p>© 2025 Shri Ji Hardware | All Rights Reserved</p>
     </footer>
 </body>
+
 </html>

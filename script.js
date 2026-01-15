@@ -91,3 +91,27 @@ function sendWhatsAppMessage(event) {
     // reset form
     event.target.reset();
 }
+
+
+
+function toggleMenu() {
+    const menu = document.getElementById("nav-menu");
+    const overlay = document.getElementById("menu-overlay");
+
+    menu.classList.toggle("show");
+    overlay.classList.toggle("show");
+}
+
+function closeMenu() {
+    const menu = document.getElementById("nav-menu");
+    const overlay = document.getElementById("menu-overlay");
+
+    menu.classList.remove("show");
+    overlay.classList.remove("show");
+}
+
+/* Close menu when any nav link is clicked */
+document.querySelectorAll("#nav-menu a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+});
+

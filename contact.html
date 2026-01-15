@@ -11,12 +11,15 @@
 
 <body>
   <header>
+    <div id="menu-overlay" onclick="closeMenu()"></div>
+
     <div class="container nav">
       <div class="logo">
         <img src="logo.png" alt="Shri Ji Hardware Logo">
         <span>Shri Ji Hardware</span>
       </div>
-      <nav>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+      <nav id="nav-menu">
         <a href="index.html">Home</a>
         <a href="products.html">Products</a>
         <a href="about.html">About</a>
@@ -53,32 +56,17 @@
       <!-- RIGHT FORM -->
       <form class="contact-form" onsubmit="sendWhatsAppMessage(event)">
 
-    <input 
-        type="text" 
-        id="name" 
-        placeholder="Your Name" 
-        required
-    >
+        <input type="text" id="name" placeholder="Your Name" required>
 
-    <input 
-        type="tel" 
-        id="phone" 
-        placeholder="Phone Number (10 digits)" 
-        required
-    >
+        <input type="tel" id="phone" placeholder="Phone Number (10 digits)" required>
 
-    <textarea 
-        id="message" 
-        placeholder="Your Requirement / Message"
-        rows="4"
-        required
-    ></textarea>
+        <textarea id="message" placeholder="Your Requirement / Message" rows="4" required></textarea>
 
-    <button type="submit">
-        Send on WhatsApp 💬
-    </button>
+        <button type="submit">
+          Send on WhatsApp 💬
+        </button>
 
-</form>
+      </form>
 
 
 
