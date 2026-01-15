@@ -93,25 +93,33 @@ function sendWhatsAppMessage(event) {
 }
 
 
+// hamburger menu
+function toggleMenu(icon) {
+  const menu = document.getElementById("nav-menu");
+  const overlay = document.getElementById("menu-overlay");
 
-function toggleMenu() {
-    const menu = document.getElementById("nav-menu");
-    const overlay = document.getElementById("menu-overlay");
+  menu.classList.toggle("show");
+  overlay.classList.toggle("show");
+  document.body.classList.toggle("menu-open");
 
-    menu.classList.toggle("show");
-    overlay.classList.toggle("show");
+  icon.textContent = icon.textContent === "☰" ? "✖" : "☰";
 }
 
 function closeMenu() {
-    const menu = document.getElementById("nav-menu");
-    const overlay = document.getElementById("menu-overlay");
+  const menu = document.getElementById("nav-menu");
+  const overlay = document.getElementById("menu-overlay");
+  const icon = document.querySelector(".hamburger");
 
-    menu.classList.remove("show");
-    overlay.classList.remove("show");
+  menu.classList.remove("show");
+  overlay.classList.remove("show");
+  document.body.classList.remove("menu-open");
+
+  if (icon) icon.textContent = "☰";
 }
 
-/* Close menu when any nav link is clicked */
-document.querySelectorAll("#nav-menu a").forEach(link => {
-    link.addEventListener("click", closeMenu);
+/* 🔥 CLOSE MENU WHEN ANY ITEM CLICKED */
+document.querySelectorAll(".nav-item").forEach(item => {
+  item.addEventListener("click", closeMenu);
 });
+
 
