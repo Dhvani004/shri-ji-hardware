@@ -1,10 +1,13 @@
 /* ================= PRODUCT FILTER ================= */
-function filterProducts(category) {
+function filterProducts(category, btn) {
     let products = document.getElementsByClassName("product-card");
     let buttons = document.querySelectorAll(".filter-buttons button");
 
-    buttons.forEach(btn => btn.classList.remove("active"));
-    event.target.classList.add("active");
+    // remove active from all buttons
+    buttons.forEach(b => b.classList.remove("active"));
+
+    // add active to clicked button
+    if (btn) btn.classList.add("active");
 
     for (let i = 0; i < products.length; i++) {
         if (category === "all") {
@@ -19,26 +22,30 @@ function filterProducts(category) {
 
 
 /* ================= WHY CHOOSE US (STAGGER) ================= */
-const whyObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
+const whySection = document.querySelector(".why-us");
 
-            const cards = entry.target.querySelectorAll(".why-card");
+if (whySection) {
+    const whyObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const cards = entry.target.querySelectorAll(".why-card");
 
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.classList.add("show");
-                }, index * 200);
-            });
+                cards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add("show");
+                    }, index * 200);
+                });
 
-            whyObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.2 });
+                whyObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
 
-whyObserver.observe(document.querySelector(".why-us"));
+    whyObserver.observe(whySection);
+}
 
-/* ================= ABOUT & VISIT (NORMAL) ================= */
+
+/* ================= ABOUT & VISIT ================= */
 const simpleObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -52,42 +59,35 @@ document.querySelectorAll(".about-box, .visit-box")
     .forEach(el => simpleObserver.observe(el));
 
 
-
+/* ================= WHATSAPP CONTACT FORM ================= */
 function sendWhatsAppMessage(event) {
-    event.preventDefault(); // stop page reload
+    event.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const message = document.getElementById("message").value.trim();
-    const successMsg = document.getElementById("successMsg");
+    const name = document.getElementById("name")?.value.trim();
+    const phone = document.getElementById("phone")?.value.trim();
+    const message = document.getElementById("message")?.value.trim();
 
-    // 📱 PHONE VALIDATION (10 digits only)
-    const phoneRegex = /^[6-9]\d{9}$/;
-
-    if (!phoneRegex.test(phone)) {
-        alert("Please enter a valid 10-digit Indian phone number");
+    if (!name || !phone || !message) {
+        alert("Please fill all fields");
         return;
     }
 
-    const whatsappNumber = "918826496613"; // 🔴 YOUR NUMBER (NO +)
+    // Indian phone validation
+    const phoneRegex = /^[6-9]\d{9}$/;
+    if (!phoneRegex.test(phone)) {
+        alert("Please enter a valid 10-digit phone number");
+        return;
+    }
+
+    const whatsappNumber = "918826496613"; // your number (no +)
 
     const text =
-        `Name: ${name}\n` +
-        `Phone: ${phone}\n` +
-        `Message: ${message}`;
+        `Name: ${name}\nPhone: ${phone}\nMessage: ${message}`;
 
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
 
     window.open(url, "_blank");
 
-    // ✅ SUCCESS MESSAGE
-    successMsg.style.display = "block";
-
-    // 🔄 RESET FORM
+    // reset form
     event.target.reset();
-
-    // ⏱ Hide success message after 3 seconds
-    setTimeout(() => {
-        successMsg.style.display = "none";
-    }, 3000);
 }

@@ -424,7 +424,7 @@ footer{
 .about-hero{
     background: var(--dark-color);
     color: var(--white-color);
-    padding: 140px 20px 80px;
+    padding: 140px 20px 8px;
     text-align: center;
 }
 
@@ -441,38 +441,57 @@ footer{
 
 /* ===== CONTACT FORM ENHANCEMENTS ===== */
 
-.contact-form button {
+/* ===== CONTACT FORM (VERTICAL) ===== */
+
+    .contact-section{
+        padding: 10px 20px;
+        background: #ffffff;
+        max-width: 500px;
+        margin: auto;               /* 🔥 CENTER HORIZONTALLY */
+        display: flex;
+        flex-direction: column;
+        align-items: center;        /* 🔥 CENTER CONTENT */
+        text-align: center;
+    }
+
+.contact-form {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    flex-direction: column;   /* 🔥 THIS MAKES IT VERTICAL */
+    gap: 15px;
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1.5px solid #ccc;
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-bg-color);
+}
+
+/* Button */
+.contact-form button {
     background: var(--primary-bg-color);
+    color: #111;
     border: none;
     padding: 14px;
     font-size: 18px;
     font-weight: bold;
     border-radius: 10px;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: 0.3s ease;
 }
 
 .contact-form button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
-/* Success message */
-.success-msg {
-    display: none;
-    color: green;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 10px;
-    animation: fadeIn 0.5s ease;
-}
-
-/* Fade animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(5px); }
-    to { opacity: 1; transform: translateY(0); }
-}
