@@ -1,8 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --primary-bg-color: #F4A851;
+    --font-display: 'Alumni Sans', serif;
+    --font-body: 'Cormorant Garamond', serif;
+}
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+html {
+    scroll-behavior: smooth;
+}
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,sans-serif;
+    font-family:var(--font-display);
+    font-size:x-large
 }
 body{
     background-color: #FFFFFF;
@@ -30,9 +53,20 @@ header.scrolled {
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-.logo{
-    color:#FFC107;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary-bg-color);
+    font-size: 28px;
+    font-weight: 600;
 }
+
+.logo img {
+    height: 45px;
+    width: auto;
+}
+
 
 .nav{
     display: flex;
@@ -48,7 +82,7 @@ nav a{
 }
 
 nav a:hover{
-    color:#FFC107;
+    color:var(--primary-bg-color);
 }
 
 .hero{
@@ -131,7 +165,7 @@ nav a:hover{
 .btn{
     display: inline-block;
     padding: 12px 25px;
-    background-color: #FFC107;
+    background-color: var(--primary-bg-color);
     color: #111111;
     text-decoration: none;
     border-radius: 5px;
@@ -141,7 +175,7 @@ nav a:hover{
 .btn.outline{
     background-color: transparent;
     color: #111111;
-    border: 2px solid #FFC107;
+    border: 2px solid var(--primary-bg-color);
 }
 
 .btn:hover{
@@ -191,7 +225,7 @@ nav a:hover{
 
 .card:hover{
     transform:translateY(-10px);
-    border-color: #ffC107;
+    border-color: var(--primary-bg-color);
     box-shadow: 0 18px 40px rgba(0,0,0,0.12);
 }
 
@@ -238,7 +272,7 @@ nav a:hover{
     max-width: 800px;
     margin:auto;
     padding: 40px;
-    border-left: 6px solid #FFC107;
+    border-left: 6px solid var(--primary-bg-color);
     opacity: 0;
     transform: translateX(-50px);
     transition: 0.6s ease;
@@ -256,7 +290,7 @@ nav a:hover{
 }
 
 .visit-box{
-    background: #FFC107;
+    background: var(--primary-bg-color);
     padding: 40px;
     border-radius: 12px;
     max-width: 500px;
@@ -309,21 +343,40 @@ footer{
     text-align: center;
 }
 
+/* ===== PRODUCT FILTER BUTTONS ===== */
+
 .filter-buttons{
-    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 30px 0 40px;
 }
 
 .filter-buttons button{
-    background: #FFC107;
-    border: none;
-    padding: 10px 18px;
-    margin: 5px;
+    background: #FFFFFF;
+    color: #111111;
+    border: 2px solid var(--primary-bg-color);
+    padding: 10px 22px;
+    border-radius: 30px;          /* pill shape */
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: smaller;
+    transition: all 0.3s ease;
 }
 
+/* hover effect */
 .filter-buttons button:hover{
-    opacity: 0.8;
+    background: var(--primary-bg-color);
+    color: #111111;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.filter-buttons button.active{
+    background: var(--primary-bg-color);
+    color: #111111;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
 .product-grid{
@@ -366,4 +419,60 @@ footer{
 .product-card h3{
     margin: 10px 0;
     color: #111111;
+}
+
+.about-hero{
+    background: var(--dark-color);
+    color: var(--white-color);
+    padding: 140px 20px 80px;
+    text-align: center;
+}
+
+.about-hero h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.about-hero p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+
+/* ===== CONTACT FORM ENHANCEMENTS ===== */
+
+.contact-form button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--primary-bg-color);
+    border: none;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Success message */
+.success-msg {
+    display: none;
+    color: green;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
 }

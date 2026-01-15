@@ -1,6 +1,10 @@
 /* ================= PRODUCT FILTER ================= */
 function filterProducts(category) {
     let products = document.getElementsByClassName("product-card");
+    let buttons = document.querySelectorAll(".filter-buttons button");
+
+    buttons.forEach(btn => btn.classList.remove("active"));
+    event.target.classList.add("active");
 
     for (let i = 0; i < products.length; i++) {
         if (category === "all") {
@@ -12,6 +16,7 @@ function filterProducts(category) {
         }
     }
 }
+
 
 /* ================= WHY CHOOSE US (STAGGER) ================= */
 const whyObserver = new IntersectionObserver(entries => {
@@ -45,3 +50,44 @@ const simpleObserver = new IntersectionObserver(entries => {
 
 document.querySelectorAll(".about-box, .visit-box")
     .forEach(el => simpleObserver.observe(el));
+
+
+
+function sendWhatsAppMessage(event) {
+    event.preventDefault(); // stop page reload
+
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const successMsg = document.getElementById("successMsg");
+
+    // 📱 PHONE VALIDATION (10 digits only)
+    const phoneRegex = /^[6-9]\d{9}$/;
+
+    if (!phoneRegex.test(phone)) {
+        alert("Please enter a valid 10-digit Indian phone number");
+        return;
+    }
+
+    const whatsappNumber = "918826496613"; // 🔴 YOUR NUMBER (NO +)
+
+    const text =
+        `Name: ${name}\n` +
+        `Phone: ${phone}\n` +
+        `Message: ${message}`;
+
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+
+    window.open(url, "_blank");
+
+    // ✅ SUCCESS MESSAGE
+    successMsg.style.display = "block";
+
+    // 🔄 RESET FORM
+    event.target.reset();
+
+    // ⏱ Hide success message after 3 seconds
+    setTimeout(() => {
+        successMsg.style.display = "none";
+    }, 3000);
+}
